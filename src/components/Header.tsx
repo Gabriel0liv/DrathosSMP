@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
-const drathosLogo = '/symbols/logo-sword.png';
-const drathosText = '/symbols/logo-text.png';
+const drathosLogo = '/logo/logoDrathos.png';
+const drathosText = '/logo/Logo_Title.png';
 
 interface HeaderProps {
   activeSection: string;
@@ -68,11 +68,10 @@ export function Header({ activeSection, setActiveSection }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
-                className={`px-4 py-2 rounded-lg transition-all ${
-                  activeSection === item.id
+                className={`px-4 py-2 rounded-lg transition-all ${activeSection === item.id
                     ? 'bg-white/10 text-celestial'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
@@ -102,11 +101,10 @@ export function Header({ activeSection, setActiveSection }: HeaderProps) {
                       setActiveSection(item.id);
                       setMobileMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-2 rounded-lg transition-all ${
-                      activeSection === item.id
+                    className={`w-full text-left px-4 py-2 rounded-lg transition-all ${activeSection === item.id
                         ? 'bg-white/10 text-celestial'
                         : 'text-gray-300 hover:bg-white/5'
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </button>

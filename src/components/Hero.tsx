@@ -6,7 +6,7 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="https://i.pinimg.com/originals/88/e5/54/88e5540465d258ab1d271bfc11189533.gif"
+          src="/backgrounds/sections/BackgroundGif04.gif"
           alt="Minecraft Greek Temple Background"
           className="w-full h-full object-cover"
         />

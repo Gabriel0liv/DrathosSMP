@@ -1,7 +1,8 @@
 import { Youtube } from 'lucide-react';
 import { motion } from 'motion/react';
 
-const drathosLogo = '/symbols/logo-sword.png';
+const drathosLogo = '/logo/logoDrathos.png';
+const drathosText = '/logo/Logo_Title.png';
 
 // Discord Icon Component
 function DiscordIcon({ className }: { className?: string }) {
@@ -39,6 +40,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <img src={drathosLogo} alt="Drathos Logo" className="h-16 w-auto object-contain" />
+              <img src={drathosText} alt="Drathos" className="h-10 w-auto object-contain" />
             </div>
             <p className="text-gray-400 max-w-md">
               Um servidor de Minecraft SMP inspirado na mitologia grega. Escolha seu Domus, honre os deuses e

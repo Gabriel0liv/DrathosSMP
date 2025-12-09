@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-const minecraftBg = '/backgrounds/discord-cta.gif';
+const minecraftBg = '/backgrounds/sections/BackgroundGif02.gif';
 
 // Discord Icon Component
 function DiscordIcon({ className }: { className?: string }) {
