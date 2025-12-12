@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { DomusSection } from './components/DomusSection';
 import { DomusDetailPage } from './components/DomusDetailPage';
+import { GodDetailPage } from './components/GodDetailPage';
 import { GodsSection } from './components/GodsSection';
 import { SemideusesSection } from './components/SemideusesSection';
 import { LoreSection } from './components/LoreSection';
@@ -35,7 +36,7 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Header activeSection={activeSection} setActiveSection={handleSectionChange} />
-      
+
       <main>
         {activeSection === 'inicio' && (
           <>
@@ -44,16 +45,23 @@ export default function App() {
             <ResourcesSection />
           </>
         )}
-        
+
         {activeSection === 'domus' && <DomusDetailPage />}
-        
-        {activeSection === 'deuses' && <GodsSection />}
-        
+
+        {activeSection === 'deuses' && <GodsSection setActiveSection={setActiveSection} />}
+
         {activeSection === 'semideuses' && <SemideusesSection />}
-        
+
         {activeSection === 'lore' && <LoreSection />}
-        
+
         {activeSection === 'recursos' && <ResourcesSection />}
+
+        {activeSection.startsWith('deuses/') && (
+          <GodDetailPage
+            godId={activeSection.split('/')[1]}
+            onBack={() => setActiveSection('deuses')}
+          />
+        )}
       </main>
 
       <DiscordCTA />

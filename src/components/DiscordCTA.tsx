@@ -79,9 +79,9 @@ export function DiscordCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            whileHover={{ scale: 1.05, y: -3 }}
+            whileHover={{ scale: 1.05, y: -3, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 px-12 py-5 rounded-xl bg-black/40 backdrop-blur-md border-2 border-celestial/40 hover:border-celestial/70 hover:bg-black/50 text-white transition-all duration-300 shadow-lg hover:shadow-celestial/30"
+            className="inline-flex items-center gap-3 px-12 py-5 rounded-xl bg-black/40 backdrop-blur-md border-2 border-celestial/40 hover:border-celestial/70 hover:bg-black/50 text-white transition-all duration-200 shadow-lg hover:shadow-celestial/30"
           >
             <DiscordIcon className="w-5 h-5 text-celestial" />
             <span className="text-lg uppercase tracking-wide">Entrar no Discord</span>

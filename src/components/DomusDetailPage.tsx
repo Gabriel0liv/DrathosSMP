@@ -472,9 +472,9 @@ export function DomusDetailPage() {
               Junte-se ao servidor e descubra qual Domus está destinado para você. Honre os deuses, complete missões épicas e torne-se uma lenda.
             </p>
             <motion.button
-              whileHover={{ scale: 1.05, y: -3 }}
+              whileHover={{ scale: 1.05, y: -3, transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.98 }}
-              className="px-10 py-4 rounded-xl bg-gradient-to-r from-celestial/90 via-terreal/90 to-abissal/90 text-black uppercase tracking-wide transition-all duration-300 shadow-2xl hover:shadow-celestial/50"
+              className="px-10 py-4 rounded-xl bg-gradient-to-r from-celestial/90 via-terreal/90 to-abissal/90 text-black uppercase tracking-wide transition-all duration-200 shadow-2xl hover:shadow-celestial/50"
             >
               Comece Sua Jornada
             </motion.button>

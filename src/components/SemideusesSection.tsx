@@ -23,28 +23,28 @@ const sampleSemideuses: Array<{
   color: DomusColor;
   skinGif: string;
 }> = [
-  {
-    name: 'PlayerExample1',
-    god: 'Zeus',
-    domus: 'Celestial',
-    color: 'celestial',
-    skinGif: '/skins/player1.gif', // GIF da skin de Minecraft
-  },
-  {
-    name: 'PlayerExample2',
-    god: 'Poseidon',
-    domus: 'Terreal',
-    color: 'terreal',
-    skinGif: '/skins/player2.gif',
-  },
-  {
-    name: 'PlayerExample3',
-    god: 'Hades',
-    domus: 'Abissal',
-    color: 'abissal',
-    skinGif: '/skins/player3.gif',
-  },
-];
+    {
+      name: 'PlayerExample1',
+      god: 'Zeus',
+      domus: 'Celestial',
+      color: 'celestial',
+      skinGif: '/skins/player1.gif', // GIF da skin de Minecraft
+    },
+    {
+      name: 'PlayerExample2',
+      god: 'Poseidon',
+      domus: 'Terreal',
+      color: 'terreal',
+      skinGif: '/skins/player2.gif',
+    },
+    {
+      name: 'PlayerExample3',
+      god: 'Hades',
+      domus: 'Abissal',
+      color: 'abissal',
+      skinGif: '/skins/player3.gif',
+    },
+  ];
 
 export function SemideusesSection() {
   return (
@@ -66,16 +66,16 @@ export function SemideusesSection() {
           {sampleSemideuses.map((semideus, index) => (
             <motion.div
               key={semideus.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="group relative p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              className="group relative p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-200"
             >
               {/* Minecraft Skin GIF */}
               <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden bg-gray-800 flex items-center justify-center">
-                <ImageWithFallback 
+                <ImageWithFallback
                   src={semideus.skinGif}
                   alt={`${semideus.name} Minecraft Skin`}
                   className="w-full h-full object-contain"
@@ -101,11 +101,11 @@ export function SemideusesSection() {
           {/* Add More Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.05 }}
-            className="p-6 rounded-xl bg-white/5 border-2 border-dashed border-white/20 backdrop-blur-sm hover:border-white/40 transition-all cursor-pointer flex flex-col items-center justify-center min-h-[280px]"
+            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            className="p-6 rounded-xl bg-white/5 border-2 border-dashed border-white/20 backdrop-blur-sm hover:border-white/40 transition-all duration-200 cursor-pointer flex flex-col items-center justify-center min-h-[280px]"
           >
             <Plus className="w-12 h-12 text-gray-500 mb-3" />
             <h4 className="text-gray-400 text-center">Mais semideuses em breve</h4>

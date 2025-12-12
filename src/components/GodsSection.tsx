@@ -7,13 +7,13 @@ const godsData = [
   { name: 'Hera', symbolPath: '/symbols/gods/hera.png', domus: 'celestial', title: 'Rainha do Olimpo' },
   { name: 'Dionísio', symbolPath: '/symbols/gods/dionisio.png', domus: 'celestial', title: 'Deus do Vinho' },
   { name: 'Apollo', symbolPath: '/symbols/gods/apollo.png', domus: 'celestial', title: 'Deus do Sol' },
-  
+
   { name: 'Poseidon', symbolPath: '/symbols/gods/poseidon.png', domus: 'terreal', title: 'Senhor dos Mares' },
   { name: 'Athena', symbolPath: '/symbols/gods/athena.png', domus: 'terreal', title: 'Deusa da Sabedoria' },
   { name: 'Demeter', symbolPath: '/symbols/gods/demeter.png', domus: 'terreal', title: 'Deusa da Colheita' },
   { name: 'Hefesto', symbolPath: '/symbols/gods/hefesto.png', domus: 'terreal', title: 'Deus da Forja' },
   { name: 'Afrodite', symbolPath: '/symbols/gods/afrodite.png', domus: 'terreal', title: 'Deusa do Amor' },
-  
+
   { name: 'Hades', symbolPath: '/symbols/gods/hades.png', domus: 'abissal', title: 'Senhor do Submundo' },
   { name: 'Perséfone', symbolPath: '/symbols/gods/persefone.png', domus: 'abissal', title: 'Rainha do Submundo' },
   { name: 'Ártemis', symbolPath: '/symbols/gods/artemis.png', domus: 'abissal', title: 'Deusa da Caça' },
@@ -26,7 +26,11 @@ const domusColors = {
   abissal: 'text-abissal border-abissal bg-abissal/5 hover:bg-abissal/10',
 };
 
-export function GodsSection() {
+interface GodsSectionProps {
+  setActiveSection: (section: string) => void;
+}
+
+export function GodsSection({ setActiveSection }: GodsSectionProps) {
   const celestialGods = godsData.filter(g => g.domus === 'celestial');
   const terrealGods = godsData.filter(g => g.domus === 'terreal');
   const abissalGods = godsData.filter(g => g.domus === 'abissal');
@@ -38,12 +42,16 @@ export function GodsSection() {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
-      whileHover={{ scale: 1.05 }}
-      className={`p-6 rounded-xl border-2 backdrop-blur-sm transition-all cursor-pointer ${domusColors[god.domus as keyof typeof domusColors]}`}
+      whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+      className={`p-6 rounded-xl border-2 backdrop-blur-sm transition-all duration-200 cursor-pointer ${domusColors[god.domus as keyof typeof domusColors]}`}
+      onClick={() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setActiveSection(`deuses/${god.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`);
+      }}
     >
       {/* PNG Symbol for each god */}
       <div className="w-16 h-16 mb-3 mx-auto flex items-center justify-center">
-        <ImageWithFallback 
+        <ImageWithFallback
           src={god.symbolPath}
           alt={`${god.name} Symbol`}
           className="w-full h-full object-contain"

@@ -56,7 +56,7 @@ export function Header({ activeSection, setActiveSection }: HeaderProps) {
           <motion.div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => setActiveSection('inicio')}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
           >
             <img src={drathosLogo} alt="Drathos Logo" className="h-12 w-auto object-contain" />
             <img src={drathosText} alt="Drathos" className="h-8 w-auto object-contain" />
@@ -69,8 +69,8 @@ export function Header({ activeSection, setActiveSection }: HeaderProps) {
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
                 className={`px-4 py-2 rounded-lg transition-all ${activeSection === item.id
-                    ? 'bg-white/10 text-celestial'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  ? 'bg-white/10 text-celestial'
+                  : 'text-gray-300 hover:text-white hover:bg-white/5'
                   }`}
               >
                 {item.label}
@@ -102,8 +102,8 @@ export function Header({ activeSection, setActiveSection }: HeaderProps) {
                       setMobileMenuOpen(false);
                     }}
                     className={`w-full text-left px-4 py-2 rounded-lg transition-all ${activeSection === item.id
-                        ? 'bg-white/10 text-celestial'
-                        : 'text-gray-300 hover:bg-white/5'
+                      ? 'bg-white/10 text-celestial'
+                      : 'text-gray-300 hover:bg-white/5'
                       }`}
                   >
                     {item.label}

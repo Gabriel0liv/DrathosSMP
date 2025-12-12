@@ -65,29 +65,29 @@ export function Footer() {
             <div className="flex gap-3">
               <motion.a
                 href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors"
+                whileHover={{ scale: 1.1, y: -2, transition: { duration: 0.2 } }}
+                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors duration-200"
               >
                 <DiscordIcon className="w-5 h-5 text-gray-400 hover:text-celestial" />
               </motion.a>
               <motion.a
                 href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors"
+                whileHover={{ scale: 1.1, y: -2, transition: { duration: 0.2 } }}
+                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors duration-200"
               >
                 <Youtube className="w-5 h-5 text-gray-400 hover:text-celestial" />
               </motion.a>
               <motion.a
                 href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors"
+                whileHover={{ scale: 1.1, y: -2, transition: { duration: 0.2 } }}
+                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors duration-200"
               >
                 <XIcon className="w-5 h-5 text-gray-400 hover:text-celestial" />
               </motion.a>
               <motion.a
                 href="#"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors"
+                whileHover={{ scale: 1.1, y: -2, transition: { duration: 0.2 } }}
+                className="p-3 rounded-lg bg-white/5 border border-white/10 hover:border-celestial/50 transition-colors duration-200"
               >
                 <TikTokIcon className="w-5 h-5 text-gray-400 hover:text-celestial" />
               </motion.a>

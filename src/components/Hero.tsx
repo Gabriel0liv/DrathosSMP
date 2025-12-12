@@ -43,7 +43,7 @@ export function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <motion.div
               className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
-              whileHover={{ scale: 1.05, borderColor: 'rgb(var(--color-celestial))' }}
+              whileHover={{ scale: 1.05, borderColor: 'rgb(var(--color-celestial))', transition: { duration: 0.2 } }}
             >
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="w-12 h-12 bg-celestial/20 rounded-lg flex items-center justify-center">
@@ -56,7 +56,7 @@ export function Hero() {
 
             <motion.div
               className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
-              whileHover={{ scale: 1.05, borderColor: 'rgb(var(--color-terreal))' }}
+              whileHover={{ scale: 1.05, borderColor: 'rgb(var(--color-terreal))', transition: { duration: 0.2 } }}
             >
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="w-12 h-12 bg-terreal/20 rounded-lg flex items-center justify-center">
@@ -69,7 +69,7 @@ export function Hero() {
 
             <motion.div
               className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
-              whileHover={{ scale: 1.05, borderColor: 'rgb(var(--color-abissal))' }}
+              whileHover={{ scale: 1.05, borderColor: 'rgb(var(--color-abissal))', transition: { duration: 0.2 } }}
             >
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="w-12 h-12 bg-abissal/20 rounded-lg flex items-center justify-center">

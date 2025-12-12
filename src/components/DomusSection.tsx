@@ -58,7 +58,7 @@ function DomusCard({ domus, index }: DomusCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.2 }}
-      whileHover={{ y: -10 }}
+      whileHover={{ y: -10, transition: { duration: 0.2 } }}
       className="group relative"
     >
       <div className={`relative rounded-2xl overflow-hidden border-2 ${domus.borderColor} ${domus.bgGradient} backdrop-blur-sm`}>

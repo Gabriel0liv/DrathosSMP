@@ -76,8 +76,8 @@ export function ResourcesSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 + index * 0.15, duration: 0.6 }}
-              whileHover={{ x: 15 }}
-              className="group relative p-5 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 backdrop-blur-sm transition-all duration-300 cursor-pointer"
+              whileHover={{ x: 15, transition: { duration: 0.2 } }}
+              className="group relative p-5 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 backdrop-blur-sm transition-all duration-200 cursor-pointer"
             >
               <div className="flex items-center justify-between gap-6">
                 <div className="flex-1 min-w-0">

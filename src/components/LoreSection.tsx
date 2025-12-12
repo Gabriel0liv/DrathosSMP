@@ -51,17 +51,17 @@ export function LoreSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`group relative p-8 rounded-xl border-2 backdrop-blur-sm transition-all ${
-                chapter.status === 'locked'
-                  ? 'border-white/10 bg-white/5 opacity-60'
-                  : 'border-white/20 bg-white/5 hover:border-celestial/50'
-              }`}
+              className={`group relative p-8 rounded-xl border-2 backdrop-blur-sm transition-all duration-200 ${chapter.status === 'locked'
+                ? 'border-white/10 bg-white/5 opacity-60 cursor-not-allowed'
+                : 'border-white/20 bg-white/5 hover:border-celestial/50 cursor-pointer'
+                }`}
+              whileHover={chapter.status !== 'locked' ? { scale: 1.02, transition: { duration: 0.2 } } : {}}
+            // onClick={() => setSelectedChapter(chapter)} // Assuming setSelectedChapter is defined elsewhere
             >
               <div className="flex items-start gap-4">
                 <div
-                  className={`p-3 rounded-lg ${
-                    chapter.status === 'locked' ? 'bg-white/5' : 'bg-celestial/10 group-hover:bg-celestial/20'
-                  } transition-colors flex items-center justify-center w-16 h-16`}
+                  className={`p-3 rounded-lg ${chapter.status === 'locked' ? 'bg-white/5' : 'bg-celestial/10 group-hover:bg-celestial/20'
+                    } transition-colors flex items-center justify-center w-16 h-16`}
                 >
                   <ImageWithFallback
                     src={chapter.status === 'locked' ? '/symbols/lock.png' : '/symbols/scroll-open.png'}
@@ -76,7 +76,7 @@ export function LoreSection() {
 
                   {chapter.status === 'revealed' && (
                     <motion.button
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                       className="mt-4 flex items-center gap-2 text-sm text-celestial hover:text-celestial/80 transition-colors"
                     >
                       <div className="w-4 h-4">
@@ -118,12 +118,13 @@ export function LoreSection() {
               Desvende os mistérios deixados pelos deuses antigos. Cada enigma revelará mais sobre a história de Drathos e desbloqueará recompensas
               únicas.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="px-6 py-3 rounded-lg bg-white/10 border border-white/30 hover:border-celestial/50 hover:bg-celestial/10 transition-all"
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              className="px-6 py-3 rounded-lg bg-white/10 border border-white/30 hover:border-celestial/50 hover:bg-celestial/10 transition-all duration-200"
             >
               Ver Enigmas Ativos
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>

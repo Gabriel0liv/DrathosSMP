@@ -66,8 +66,8 @@ export function NewsSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ x: 10 }}
-              className="group relative p-6 md:p-8 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 backdrop-blur-sm transition-all cursor-pointer"
+              whileHover={{ x: 10, transition: { duration: 0.2 } }}
+              className="group relative p-6 md:p-8 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 backdrop-blur-sm transition-all duration-200 cursor-pointer"
             >
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div
@@ -116,12 +116,13 @@ export function NewsSection() {
           <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
             Entre no nosso Discord para receber notificações de eventos, atualizações e competições em tempo real.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="px-8 py-3 rounded-lg bg-celestial/20 border border-celestial/50 text-celestial hover:bg-celestial/30 transition-all"
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            className="px-8 py-3 rounded-lg bg-celestial/20 border border-celestial/50 text-celestial hover:bg-celestial/30 transition-all duration-200"
           >
             Entrar no Discord
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>
