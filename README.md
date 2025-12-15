@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# Drathos Website (Em desenvolvimento)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-19.0-blue?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Currently, two official plugins are available:
+Website oficial do servidor **Drathos SMP**, desenvolvido para apresentar o rico universo e recursos do servidor.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sobre o Projeto
 
-## React Compiler
+Este projeto é uma Single Page Application (SPA) construída com tecnologias web modernas para oferecer uma experiência de navegação fluida e visualmente imersiva. O site serve como um hub central de informações para os jogadores, contendo detalhes sobre panteões, regras (domus) e mecânicas do servidor.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- **Navegação Interativa**: Sistema de roteamento interno fluido para transição entre seções.
+- **Panteão dos Deuses**: Páginas detalhadas para cada divindade com lore, habilidades e informações visuais.
+- **Sistema de Domus**: Apresentação das casas e suas características.
+- **Lore e História**: Seções dedicadas à narrativa do servidor.
+- **Design Responsivo**: Layout adaptável para desktop e dispositivos móveis.
+- **Animações**: Integração com Framer Motion para uma experiência de usuário dinâmica.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tecnologias
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+O projeto foi desenvolvido utilizando uma stack moderna focada em performance e experiência de desenvolvimento:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **[React 19](https://react.dev/)**: Biblioteca principal para construção da interface.
+- **[Vite](https://vitejs.dev/)**: Build tool ultrarrápida para desenvolvimento frontend.
+- **[TypeScript](https://www.typescriptlang.org/)**: Superconjunto de JavaScript que adiciona tipagem estática.
+- **[Tailwind CSS](https://tailwindcss.com/)**: Framework de CSS utilitário para estilização ágil.
+- **[Framer Motion](https://www.framer.com/motion/)**: Biblioteca de animações para React.
+- **[Lucide React](https://lucide.dev/)**: Coleção de ícones consistente e leve.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Instalação e Uso
+
+Pré-requisitos: Você precisa ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
+
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/drathos-website.git
+   cd drathos-website
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor de desenvolvimento**
+   ```bash
+   npm run dev
+   ```
+   O site estará acessível em `http://localhost:5173`.
+
+4. **Build para produção**
+   Para gerar a versão otimizada para deploy:
+   ```bash
+   npm run build
+   ```
+
+## Estrutura do Projeto
+
+A estrutura de arquivos principal está organizada da seguinte forma:
+
+```
+src/
+├── components/      # Componentes React reutilizáveis (Header, Footer, Seções)
+├── data/           # Arquivos de dados estáticos (ex: godsData.ts)
+├── assets/         # Imagens, fontes e outros recursos estáticos
+├── styles/         # Estilos globais e customizações
+├── App.tsx         # Componente principal e gerenciamento de rotas/estado
+└── main.tsx        # Ponto de entrada da aplicação
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Licença
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Este projeto é de uso exclusivo do servidor Drathos SMP.

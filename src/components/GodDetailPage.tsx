@@ -25,7 +25,7 @@ export function GodDetailPage({ godId, onBack }: GodDetailPageProps) {
     }
 
     return (
-        <div className={`min-h-screen bg-[rgb(10,10,15)] text-white overflow-hidden`}>
+        <div className={`min-h-screen bg-[rgb(10,10,15)] text-white overflow-hidden relative`}>
             {/* Navigation */}
             <nav className="fixed top-0 left-0 p-6 z-50">
                 <button
@@ -37,51 +37,66 @@ export function GodDetailPage({ godId, onBack }: GodDetailPageProps) {
                 </button>
             </nav>
 
-            {/* Hero / Header Section */}
-            <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            {/* Background Image - Anchored Bottom Right of Section */}
+            {god.characterImage ? (
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    className="absolute right-0 bottom-0 h-[85vh] lg:h-[95vh] w-auto z-0 pointer-events-none flex items-end justify-end"
                 >
-                    <h1 className={`text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r ${god.bgGradient.replace('bg-', '')} bg-clip-text text-transparent`}>
-                        {god.name}
-                    </h1>
-                    <h2 className={`text-xl md:text-2xl ${god.color} opacity-80 uppercase tracking-widest`}>
-                        {god.title}
-                    </h2>
+                    <ImageWithFallback
+                        src={god.characterImage}
+                        alt={god.name}
+                        className="h-full w-auto object-contain object-bottom drop-shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+                    />
                 </motion.div>
+            ) : (
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute right-0 bottom-0 h-[80vh] w-auto opacity-10 blur-sm z-0 pointer-events-none"
+                >
+                    <ImageWithFallback
+                        src={god.symbol}
+                        alt={god.name}
+                        className="h-full w-auto object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                    />
+                </motion.div>
+            )}
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                    {/* Left Column - Image (or Symbol if no hero image) */}
+            {/* Scrollable Content Section */}
+            <section className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 min-h-screen flex flex-col justify-center">
+
+                {/* Content Container - Vertically Centered */}
+                <div className="w-full lg:w-2/3 lg:max-w-3xl flex flex-col justify-center gap-6">
+
+                    {/* Header - Left Aligned */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        className="lg:col-span-4 flex justify-center lg:justify-start"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-left"
                     >
-                        <div className={`relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border-2 ${god.color.replace('text-', 'border-')} bg-gradient-to-b ${god.bgGradient}`}>
-                            <div className={`absolute inset-0 flex items-center justify-center ${god.characterImage ? '' : 'p-12'}`}>
-                                <ImageWithFallback
-                                    src={god.characterImage || god.symbol}
-                                    alt={god.name}
-                                    className={`w-full h-full object-contain ${god.characterImage ? 'object-cover' : 'opacity-80 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]'}`}
-                                />
-                            </div>
-                        </div>
+                        <h1 className={`text-4xl md:text-6xl font-bold mb-2 bg-gradient-to-r ${god.bgGradient.replace('bg-', '')} bg-clip-text text-transparent`}>
+                            {god.name}
+                        </h1>
+                        <h2 className={`text-lg md:text-xl ${god.color} opacity-90 uppercase tracking-widest font-semibold`}>
+                            {god.title}
+                        </h2>
                     </motion.div>
 
-                    {/* Right Column - Text Content */}
-                    <div className="lg:col-span-8 space-y-12">
-                        {/* Description / Intro */}
+                    {/* Content Blocks - Consistent Size & High Contrast */}
+                    <div className="space-y-4">
+                        {/* Description */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="prose prose-invert max-w-none"
+                            className="prose prose-invert max-w-none text-left"
                         >
-                            <p className="text-lg text-gray-300 leading-relaxed border-l-4 border-white/10 pl-6 whitespace-pre-line">
+                            <p className="text-base md:text-lg text-gray-200 leading-relaxed border-l-4 border-white/20 pl-6 whitespace-pre-line backdrop-blur-md bg-black/60 p-6 rounded-r-2xl shadow-lg">
                                 {god.description}
                             </p>
                         </motion.div>
@@ -91,54 +106,34 @@ export function GodDetailPage({ godId, onBack }: GodDetailPageProps) {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
+                            className="backdrop-blur-md bg-black/60 p-6 rounded-2xl border border-white/10 shadow-lg"
                         >
-                            <h3 className={`text-2xl font-bold mb-4 flex items-center gap-3 ${god.color}`}>
+                            <h3 className={`text-xl font-bold mb-3 flex items-center gap-3 ${god.color}`}>
                                 ✧ Filosofia & Personalidade
                             </h3>
-                            <p className="text-gray-400 leading-relaxed whitespace-pre-line">
+                            <p className="text-gray-200 leading-relaxed whitespace-pre-line text-base text-left">
                                 {god.domains}
                             </p>
                         </motion.div>
 
-                        {/* Personality */}
+                        {/* Personality/Manifestations */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
+                            className="backdrop-blur-md bg-black/60 p-6 rounded-2xl border border-white/10 shadow-lg"
                         >
-                            <h3 className={`text-2xl font-bold mb-4 flex items-center gap-3 ${god.color}`}>
+                            <h3 className={`text-xl font-bold mb-3 flex items-center gap-3 ${god.color}`}>
                                 ✧ Manifestações & Símbolos
                             </h3>
-                            <p className="text-gray-400 leading-relaxed whitespace-pre-line">
+                            <p className="text-gray-200 leading-relaxed whitespace-pre-line text-base text-left">
                                 {god.personality}
                             </p>
                         </motion.div>
-
-                        {/* Manifestations - Removed duplicate block since mapped to personality field above for now, or check for unique content */}
                     </div>
                 </div>
-            </section>
 
-            {/* Banner Section */}
-            <motion.section
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="relative w-full h-[300px] mt-24 overflow-hidden"
-            >
-                <div className={`absolute inset-0 bg-gradient-to-t ${god.bgGradient} opacity-60 z-10`} />
-                {/* Banner Image */}
-                <ImageWithFallback
-                    src={god.banner}
-                    alt={`${god.name} Banner`}
-                    className="w-full h-full object-cover grayscale opacity-50"
-                />
-                <div className="absolute inset-0 z-20 flex items-center justify-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white tracking-widest uppercase drop-shadow-lg">
-                        {god.name}
-                    </h2>
-                </div>
-            </motion.section>
+            </section>
         </div>
     );
 }
