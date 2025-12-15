@@ -7,6 +7,8 @@
 
 Website oficial do servidor **Drathos SMP**, desenvolvido para apresentar o rico universo e recursos do servidor.
 
+> 🤝 **Projeto Comunitário**: Este site nasceu da iniciativa de um grupo de amigos com gostos em comum, desenvolvido com carinho para celebrar e expandir a experiência do servidor que tanto gostamos.
+
 ## Sobre o Projeto
 
 Este projeto é uma Single Page Application (SPA) construída com tecnologias web modernas para oferecer uma experiência de navegação fluida e visualmente imersiva. O site serve como um hub central de informações para os jogadores, contendo detalhes sobre panteões, regras (domus) e mecânicas do servidor.
