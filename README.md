@@ -7,7 +7,7 @@
 
 Website oficial do servidor **Drathos SMP**, desenvolvido para apresentar o rico universo e recursos do servidor.
 
-> 🤝 **Projeto Comunitário**: Este site nasceu da iniciativa de um grupo de amigos com gostos em comum, desenvolvido com carinho para celebrar e expandir a experiência do servidor que tanto gostamos.
+> 🤝 **Projeto Comunitário**: Este site nasceu da iniciativa de um grupo de amigos com gostos em comum, servindo como complemento à ideia do servidor Drathos SMP. O projeto ainda está em desenvolvimento, mas já une uma comunidade incrível com mais de **500 membros** no Discord!
 
 ## Sobre o Projeto
 
