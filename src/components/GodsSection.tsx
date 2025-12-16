@@ -2,22 +2,22 @@ import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const godsData = [
-  { name: 'Zeus', symbolPath: '/symbols/gods/zeus.png', domus: 'celestial', title: 'Rei dos Deuses' },
-  { name: 'Hermes', symbolPath: '/symbols/gods/hermes.png', domus: 'celestial', title: 'Mensageiro dos Deuses' },
-  { name: 'Hera', symbolPath: '/symbols/gods/hera.png', domus: 'celestial', title: 'Rainha do Olimpo' },
-  { name: 'Dionísio', symbolPath: '/symbols/gods/dionisio.png', domus: 'celestial', title: 'Deus do Vinho' },
-  { name: 'Apollo', symbolPath: '/symbols/gods/apollo.png', domus: 'celestial', title: 'Deus do Sol' },
+  { name: 'Zeus', symbolPath: '/resources/gods/symbols/zeusSymbol.PNG', domus: 'celestial', title: 'Rei dos Deuses' },
+  { name: 'Hermes', symbolPath: '/resources/gods/symbols/hermesSymbol.PNG', domus: 'celestial', title: 'Mensageiro dos Deuses' },
+  { name: 'Hera', symbolPath: '/resources/gods/symbols/heraSymbol.PNG', domus: 'celestial', title: 'Rainha do Olimpo' },
+  { name: 'Dionísio', symbolPath: '/resources/gods/symbols/dionisioSymbol.PNG', domus: 'celestial', title: 'Deus do Vinho' },
+  { name: 'Apollo', symbolPath: '/resources/gods/symbols/apoloSymbol.PNG', domus: 'celestial', title: 'Deus do Sol' },
 
-  { name: 'Poseidon', symbolPath: '/symbols/gods/poseidon.png', domus: 'terreal', title: 'Senhor dos Mares' },
-  { name: 'Athena', symbolPath: '/symbols/gods/athena.png', domus: 'terreal', title: 'Deusa da Sabedoria' },
-  { name: 'Demeter', symbolPath: '/symbols/gods/demeter.png', domus: 'terreal', title: 'Deusa da Colheita' },
-  { name: 'Hefesto', symbolPath: '/symbols/gods/hefesto.png', domus: 'terreal', title: 'Deus da Forja' },
-  { name: 'Afrodite', symbolPath: '/symbols/gods/afrodite.png', domus: 'terreal', title: 'Deusa do Amor' },
+  { name: 'Poseidon', symbolPath: '/resources/gods/symbols/poseidonSymbol.PNG', domus: 'terreal', title: 'Senhor dos Mares' },
+  { name: 'Athena', symbolPath: '/resources/gods/symbols/athenaSymbol.PNG', domus: 'terreal', title: 'Deusa da Sabedoria' },
+  { name: 'Demeter', symbolPath: '/resources/gods/symbols/demeterSymbol.PNG', domus: 'terreal', title: 'Deusa da Colheita' },
+  { name: 'Hefesto', symbolPath: '/resources/gods/symbols/hefestoSymbol.PNG', domus: 'terreal', title: 'Deus da Forja' },
+  { name: 'Afrodite', symbolPath: '/resources/gods/symbols/afroditeSymbol.PNG', domus: 'terreal', title: 'Deusa do Amor' },
 
-  { name: 'Hades', symbolPath: '/symbols/gods/hades.png', domus: 'abissal', title: 'Senhor do Submundo' },
-  { name: 'Perséfone', symbolPath: '/symbols/gods/persefone.png', domus: 'abissal', title: 'Rainha do Submundo' },
-  { name: 'Ártemis', symbolPath: '/symbols/gods/artemis.png', domus: 'abissal', title: 'Deusa da Caça' },
-  { name: 'Ares', symbolPath: '/symbols/gods/ares.png', domus: 'abissal', title: 'Deus da Guerra' },
+  { name: 'Hades', symbolPath: '/resources/gods/symbols/hadesSymbol.PNG', domus: 'abissal', title: 'Senhor do Submundo' },
+  { name: 'Perséfone', symbolPath: '/resources/gods/symbols/persefoneSymbol.PNG', domus: 'abissal', title: 'Rainha do Submundo' },
+  { name: 'Ártemis', symbolPath: '/resources/gods/symbols/artemisSymbol.PNG', domus: 'abissal', title: 'Deusa da Caça' },
+  { name: 'Ares', symbolPath: '/resources/gods/symbols/aresSymbol.PNG', domus: 'abissal', title: 'Deus da Guerra' },
 ];
 
 const domusColors = {
@@ -43,18 +43,18 @@ export function GodsSection({ setActiveSection }: GodsSectionProps) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
       whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-      className={`p-6 rounded-xl border-2 backdrop-blur-sm transition-all duration-200 cursor-pointer ${domusColors[god.domus as keyof typeof domusColors]}`}
+      className={`flex flex-col items-center text-center px-6 py-3 rounded-xl border-2 backdrop-blur-sm transition-all duration-200 cursor-pointer ${domusColors[god.domus as keyof typeof domusColors]}`}
       onClick={() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setActiveSection(`deuses/${god.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`);
       }}
     >
       {/* PNG Symbol for each god */}
-      <div className="w-16 h-16 mb-3 mx-auto flex items-center justify-center">
+      <div className="w-24 h-24 mb-1 mx-auto flex items-center justify-center">
         <ImageWithFallback
           src={god.symbolPath}
           alt={`${god.name} Symbol`}
-          className="w-full h-full object-contain"
+          className={`w-full h-full object-contain ${['Hades', 'Ares', 'Ártemis'].includes(god.name) ? 'scale-125' : ''}`}
         />
       </div>
       <h4 className="mb-1">{god.name}</h4>

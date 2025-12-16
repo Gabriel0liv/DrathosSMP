@@ -60,6 +60,10 @@ export default function App() {
           <GodDetailPage
             godId={activeSection.split('/')[1]}
             onBack={() => setActiveSection('deuses')}
+            onNavigate={(id) => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setActiveSection(`deuses/${id}`);
+            }}
           />
         )}
       </main>

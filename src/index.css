@@ -13,10 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Domus Colors */
-  --color-celestial: 255 215 0; /* Gold */
-  --color-terreal: 34 139 34;   /* Forest Green */
-  --color-abissal: 139 92 246;  /* Purple */
-  
+  /* Domus Colors - Brightened for contrast on dark bg */
+  --color-celestial: 250 204 21;
+  /* Yellow-400 equivalent */
+  --color-terreal: 74 222 128;
+  /* Green-400 equivalent */
+  --color-abissal: 221 214 254;
+  /* Violet-200 equivalent - Very Light */
+
   --bg-dark: 10 10 15;
   --bg-darker: 5 5 10;
 }
@@ -26,6 +30,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -54,9 +59,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -67,9 +74,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
